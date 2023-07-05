@@ -1,5 +1,5 @@
 CREATE TABLE Clientes (
-    IDCliente INT PRIMARY KEY,
+    IDCliente INT PRIMARY KEY AUTO_INCREMENT,
     Nombre VARCHAR(255),
     Apellido VARCHAR(255),
     Direccion VARCHAR(255),
@@ -9,7 +9,7 @@ CREATE TABLE Clientes (
 );
 
 CREATE TABLE Prestamos (
-    IDPrestamo INT PRIMARY KEY,
+    IDPrestamo INT PRIMARY KEY AUTO_INCREMENT,
     IDCliente INT,
     Monto DECIMAL(10, 2),
     TasaInteres DECIMAL(5, 2),
@@ -20,7 +20,7 @@ CREATE TABLE Prestamos (
 );
 
 CREATE TABLE Pagos (
-    IDPago INT PRIMARY KEY,
+    IDPago INT PRIMARY KEY AUTO_INCREMENT,
     IDPrestamo INT,
     FechaPago DATE,
     MontoPagado DECIMAL(10, 2),
@@ -28,7 +28,7 @@ CREATE TABLE Pagos (
 );
 
 CREATE TABLE Cuotas (
-    IDCuota INT PRIMARY KEY,
+    IDCuota INT PRIMARY KEY AUTO_INCREMENT,
     IDPrestamo INT,
     NumeroCuota INT,
     FechaVencimiento DATE,

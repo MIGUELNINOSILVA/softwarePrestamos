@@ -7,6 +7,7 @@ import cuotasRouter from './routes/cuotas.routes.js';
 const app = express();
 
 app.set('port', 5001);
+app.use(express.json());
 
 // Routes
 app.use('/api/clientes',clientesRouter);

@@ -5,5 +5,6 @@ const router = Router();
 
 // Clientes
 router.get('/', methodsHTTPClientes.getAllClientes);
+router.post('/', methodsHTTPClientes.insertClientes);
 
 export default router;

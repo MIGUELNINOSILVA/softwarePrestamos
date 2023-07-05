@@ -11,6 +11,27 @@ async function getAllClientes(req, res) {
     }
 }
 
+async function insertClientes(req, res) {
+    try {
+        const response = await getConnection();
+        const body = req.body;
+        const data = {
+            Nombre: body.Nombre,
+            Apellido: body.Apellido,
+            Direccion: body.Direccion,
+            Telefono : body.Telefono,
+            CorreoElectronico: body.CorreoElectronico,
+            FechaRegistro: body.FechaRegistro
+        }
+        const result = await response.query("INSERT INTO clientes SET ? ", [data])
+        res.json(result);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
 export const methodsHTTPClientes = {
-    getAllClientes
+    getAllClientes,
+    insertClientes
 }
