@@ -5,5 +5,6 @@ const router = Router();
 
 // Prestamos
 router.get('/', methodsHTTPPrestamos.getAllPrestamos);
+router.post('/', methodsHTTPPrestamos.insertPrestamos);
 
 export default router;

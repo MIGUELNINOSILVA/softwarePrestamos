@@ -11,6 +11,26 @@ async function getAllPrestamos(req, res) {
     }
 }
 
+async function insertPrestamos(req, res) {
+    try {
+        const response = await getConnection();
+        const body = req.body;
+        const data = {
+            IDCliente: body.IDCliente,
+            Monto: body.Monto,
+            TasaInteres: body.TasaInteres,
+            PlazoMeses: body.PlazoMeses,
+            FechaInicio: body.FechaInicio,
+            Estado: body.Estado
+        }
+        const result = await response.query("INSERT INTO prestamos SET ?",[data]);
+        res.json(result);
+    } catch (error) {
+        
+    }
+}
+
 export const methodsHTTPPrestamos = {
-    getAllPrestamos
+    getAllPrestamos,
+    insertPrestamos
 }
