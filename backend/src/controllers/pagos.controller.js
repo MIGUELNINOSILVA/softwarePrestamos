@@ -11,6 +11,25 @@ async function getAllPagos(req, res) {
     }
 }
 
+async function insertPagos(req, res) {
+    try {
+        const response = await getConnection();
+        const body = req.body;
+        const data = {
+            IDPrestamo: body.IDPrestamo,
+            FechaPago: body.FechaPago,
+            MontoPagado: body.MontoPagado
+        }
+        const result = await response.query("INSERT INTO pagos SET ?", [data]);
+        res.json(result);
+        
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
 export const methodsHTTPPagos = {
-    getAllPagos
+    getAllPagos,
+    insertPagos
 }

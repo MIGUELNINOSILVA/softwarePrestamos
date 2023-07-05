@@ -5,5 +5,6 @@ const router = Router();
 
 // Pagos
 router.get('/', methodsHTTPPagos.getAllPagos);
+router.post('/', methodsHTTPPagos.insertPagos);
 
 export default router;
