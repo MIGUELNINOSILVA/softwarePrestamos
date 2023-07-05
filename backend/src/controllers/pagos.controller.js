@@ -16,7 +16,7 @@ async function insertPagos(req, res) {
         const response = await getConnection();
         const body = req.body;
         const data = {
-            IDPrestamo: body.IDPrestamo,
+            IDCuota: body.IDCuota,
             FechaPago: body.FechaPago,
             MontoPagado: body.MontoPagado
         }

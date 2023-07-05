@@ -5,5 +5,6 @@ const router = Router();
 
 // Cuotas
 router.get('/', methodsHTTPCuotas.getAllCuotas);
+router.post('/', methodsHTTPCuotas.insertCuotas);
 
 export default router;

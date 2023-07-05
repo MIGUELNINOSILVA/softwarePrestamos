@@ -11,6 +11,26 @@ async function getAllCuotas(req, res) {
     }
 }
 
+async function insertCuotas(req, res) {
+    try {
+        const response = await getConnection();
+        const body = req.body;
+        const data = {
+            IDPrestamo: body.IDPrestamo,
+            NumeroCuota: body.NumeroCuota,
+            FechaVencimiento : body.FechaVencimiento,
+            MontoCuota: body.MontoCuota,
+            Estado: body.Estado
+        }
+
+        const result = await response.query("INSERT INTO cuotas SET ?",[data]);
+        res.json(result);
+    } catch (error) {
+        
+    }
+}
+
 export const methodsHTTPCuotas = {
-    getAllCuotas
+    getAllCuotas,
+    insertCuotas
 }
